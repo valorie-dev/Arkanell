@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx0eovk7mtqqp"]
+
+[ext_resource type="Script" path="res://script/mainMenu.gd" id="1_n08vo"]
+[ext_resource type="Texture2D" uid="uid://cy4vs47pxyol7" path="res://Asset Pack/template background 1.png" id="2_o1wva"]
+[ext_resource type="AudioStream" uid="uid://diu0xkscl0bfn" path="res://music/for-elevator-jazz-music-124005.mp3" id="3_65xxw"]
+[ext_resource type="Theme" uid="uid://bq52vocemd2d3" path="res://Scenes/UI prefab.tres" id="4_0be32"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_n08vo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_o1wva")
+stretch_mode = 1
+
+[node name="Control" type="Control" parent="."]
+top_level = true
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("4_0be32")
+
+[node name="Ambitie" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 151.0
+offset_right = 698.0
+offset_bottom = 221.0
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="Quit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 393.0
+offset_right = 684.0
+offset_bottom = 461.0
+tooltip_text = "fucking pussy"
+theme_override_font_sizes/font_size = 25
+text = "Quit"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 459.0
+offset_top = 270.0
+offset_right = 693.0
+offset_bottom = 349.0
+bbcode_enabled = true
+text = "[center]goal of game:
+Touch the OBJECT at the end of an level too win![/center]"
+scroll_active = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_65xxw")
+autoplay = true
+
+[connection signal="pressed" from="Control/Ambitie" to="." method="_on_ambitie_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
